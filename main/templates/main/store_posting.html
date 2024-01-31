@@ -1,0 +1,74 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/store_posting.css' %}">
+    <div class="store-detail-wrapper">
+        <div class="store-img-container">
+            <img src="{{ store.img.url }}">
+        </div>
+        <div class="store-detail-container">
+
+            <div class="box-detail1-posting">
+                <p class="store-name-posting">{{ store.name }}</p>
+                <div class="star-score-posting">
+                    {% if store.rating %}
+                        <img src="{% static 'img/star.png' %}">
+                        <p>{{ store.rating }}</p>
+                    {% endif %}
+                </div>
+                <a class="review-posting" href="{% url 'main:review' store_id=store.id %}">
+                    <p>리뷰</p>
+                    <img src="{% static 'img/front.png' %}">
+                </a>
+            </div>
+
+            <div class="box-detail2-posting">
+                <div class="free-posting">
+                    <img src="{% static 'img/free.png' %}">
+                    <p class="free-name">최소주문금액</p>
+                    <p>{{ store.min_price|floatformat:0 }}원</p>
+                </div>
+
+                <div class="delivery-class">
+                    <img src="{% static 'img/delivery.png' %}">
+                    <p class="delivery-name">배달시간</p>
+                    <p>10~20분 후 도착</p>
+                    <p>{{ store.delivery_fee|floatformat:0 }}원</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="store-menulist-boxes">
+            <div class="star-menu-class">
+                <img src="{% static 'img/star2.png' %}">
+                <p>인기 메뉴</p>
+            </div>
+
+            {% for menu in menus %}
+            <div class="store-menulist-box">
+                <div class="menu-name-posting">
+                    <div class="menu-name">
+                        <img src="{% static 'img/star3.png' %}">
+                        <p>{{ menu.menu_name }}</p>
+                    </div>
+                    <p class="menu-comment">{{ menu.menu_comment }}</p>
+                    <p class="menu-price">{{ menu.price|floatformat:0 }}원</p>
+                </div>
+
+                <div class="menu-img-posting">
+                    <img src="{{ menu.img.url }}">
+                </div>
+
+                <div class="menu-plus-posting">
+                    <a href="{% url 'main:cart_add' menu_id=menu.id %}">
+                        <img src="{% static 'img/plus.png' %}" alt="Add to Cart"/>
+                    </a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

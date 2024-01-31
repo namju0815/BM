@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/store_list.css' %}">
+    <div class="store-list-wrapper">
+        <div class="store-list-boxes">
+        {% for store in stores %}
+        <div class="store-list-box">
+            <img src="{{ store.img.url }}">
+            <div class="store-list-box-detail">
+
+                <div class="box-detail1">
+                    <a class="store-name" href="{% url 'main:store_posting' store_id=store.pk%}">{{ store.name }}</a>
+                    <div class="star-score">
+                        {% if store.rating %}
+                            <img src="{% static 'img/star.png' %}"><p>{{ store.rating }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="box-detail2">
+                    {% if store.delivery_fee %}
+                        <p>배달팁  {{ store.delivery_fee|floatformat:0 }}원</p>
+                    {% endif %}
+                    {% if store.min_price %}
+                        <p>최소주문  {{ store.min_price|floatformat:0 }}원</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

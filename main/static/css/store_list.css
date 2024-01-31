@@ -1,0 +1,59 @@
+.store-list-wrapper{
+    text-align: center;
+}
+
+.store-list-wrapper > h2{
+    float:left;
+}
+
+.store-list-boxes{
+    display: inline-block;
+}
+
+.store-list-box{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #A4A4A4;
+    height: 180px;
+    width: 800px;
+    margin: 10px;
+}
+
+/* 음식사진 */
+.store-list-box > img {
+    height: 130px;
+    width: 250px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.store-list-box-detail{
+    text-align: left;
+}
+
+.box-detail1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+/*가게이름*/
+.store-name{
+    font-size: 20px;
+    margin-right: 5px;
+    float: left;
+}
+/* 별점 */
+.star-score{
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+}
+.star-score > img{
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* 배달팁, 최소주문 */
+.box-detail2 p {
+    margin-top: 5px;
+}

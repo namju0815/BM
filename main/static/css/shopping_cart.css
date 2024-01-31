@@ -1,0 +1,107 @@
+.shopping-cart-wrapper{
+    padding: 20px 200px 20px 200px;
+}
+
+.shopping-cart-boxes{
+
+}
+
+.shopping-cart-box{
+    height: auto;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #A4A4A4;
+    padding: 20px;
+}
+
+/*가게이름*/
+.shopping-cart-store-name{
+    display: flex; /*나란히 정렬*/
+    align-items: center;
+    margin-bottom: 10px;
+}
+.shopping-cart-store-name > img{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.shopping-cart-store-name > p{
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+/*시계img*/
+.shopping-cart-clock{
+    display: flex;
+    align-items: center;
+}
+.shopping-cart-clock > img{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+.shopping-cart-clock > p{
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+/*가게메뉴전체*/
+.shopping-cart-store-detail{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/*메뉴이미지*/
+.shopping-cart-menu-img{
+    width: 100px;
+    height: 100px;
+    margin-right: 40px;
+}
+.shopping-cart-menu-img > img{
+    border: 1px solid #A4A4A4;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+/*가게메뉴설명*/
+.shopping-cart-menu-detail{
+    width: 200px;
+}
+.shopping-cart-menu-detail > p{
+    font-size: 20px;
+}
+
+
+/*수량 설정*/
+.shopping-cart-menu-quantity{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.shopping-cart-menu-quantity > a{
+    margin: 0 10px;
+    font-weight: bold;
+}
+.shopping-cart-menu-quantity > p{
+    font-size: 20px;
+}
+
+/*메뉴완전삭제*/
+.shopping-cart-menu-delete{
+    position: absolute;
+    right: 0;
+}
+.shopping-cart-menu-delete a img{
+    height: 40px;
+    width: 40px;
+}
+
+/*더담으러 가기*/
+.shopping-cart-more-button{
+    text-align: center;
+    maring: 50px;
+}
+

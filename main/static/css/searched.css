@@ -1,0 +1,43 @@
+.search-result > p{
+    font-size: 15px;
+    padding-left: 130px;
+}
+.search-total{
+    margin-right: auto;
+    margin-left: auto;
+    height: auto;
+}
+
+.search-boxes{
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+}
+
+.search-box{
+    border: 1px solid #D2D2D2;
+    background-color: #F8F8F8;
+    border-radius: 10px;
+    height: 300px;
+    width: 400px;
+    margin: 10px;
+}
+
+.search-img {
+    height: 225px;
+    width: 400px;
+    display: block;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.search-box-text > a{
+    font-size: 20px;
+    padding: 10px;
+}
+
+.search-box-text > p{
+    font-size: 15px;
+    padding-left: 10px;
+}
+

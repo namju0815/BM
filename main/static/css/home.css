@@ -1,0 +1,58 @@
+.home-wrapper {
+    margin: 20px;
+    text-align: center;
+}
+
+.banner-container {
+    display: inline-block;
+    position: relative;
+    width: 800px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.banner-slide{
+    position: absolute; /*절대적으로 같은 위치에 보내줌*/
+    top: 0;
+    left: 0;
+}
+.banner-slide > img {
+    display: none;
+    width: 800px;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/*배너활성화*/
+.banner-slide.pre > img{
+    display: block;
+    transform: translateX(-100%); /*원래위치에서 왼쪽으로 사라지기*/
+    opacity: 0;
+}
+.banner-slide.active > img{
+    display: block;
+    transform: translateX(0);
+    opacity: 1;
+}
+.banner-slide.next > img{
+    display: block;
+    transform: translateX(100%); /*오른쪽에서 원래위치로 되돌아오기*/
+    opacity: 0;
+}
+
+
+.menulist_container{
+    text-align: center;
+}
+.menulist-boxes{
+    display: inline-block;
+}
+.menulist-box{
+    padding: 30px;
+}
+.menulist-img{
+    width: 70px;
+    height: 70px;
+}

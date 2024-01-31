@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
+    <div class="home-wrapper">
+        <div class="banner-container">
+            {% for banner in homebannerimgs %}
+                <div class="banner-slide">
+                    <img src="{{ banner.image.url }}">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="menulist-container">
+            <table class="menulist-boxes">
+                <tr>
+                    {% for category in categories %}
+                        <td>
+                            <div class="menulist-box">
+                                <a href="{% url 'main:store_list' category_id=category.pk%}" class="menulist-a">
+                                    <img class="menulist-img" src="{{ category.image.url }}">
+                                </a>
+                                <p>{{ category.name }}</p>
+                            </div>
+                        </td>
+                        {% if forloop.counter|divisibleby:5 and not forloop.last %}
+                            </tr><tr>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        const isLoggedIn = {{ user.is_authenticated|yesno:"true,false" }};
+    </script>
+{% endblock %}

@@ -1,0 +1,29 @@
+.review-wrapper{
+    text-align: center;
+}
+
+/*가게이름*/
+.review-store-name{
+    font-size: 30px;
+}
+
+/*별점*/
+.review-rating{
+    display: flex;
+    align-items: center; /*수직 가운데*/
+    justify-content: center; /*수평 가운데*/
+}
+/*text*/
+.review-rating1{
+    float: left;
+    font-size: 50px;
+}
+.review-rating-text{
+}
+.review-rating-star{
+}
+
+/*graph*/
+.review-rating2{
+    float: right;
+}

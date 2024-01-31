@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+    <link rel="stylesheet" href="{% static 'css/total.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="login-logo">
+        <a href="{% url 'main:home' %}">
+            <img class="login-logo-img" src="{% static 'img/login-logo.jpeg' %}" alt="로그인로고" />
+        </a>
+    </div>
+    <div class="login-class">
+        <h2>Login</h2>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <form method="post" action="{% url 'main:login' %}" id="login-form">
+            {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="userName" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+
+            <div class="login-option">
+               <div class="remember-id">
+                    <label for="remember-id">
+                        <input type="checkbox" id="remember-id"> 아이디 저장하기
+                    </label>
+                </div>
+
+                <div class="find-id-password">
+                    <span><a href="#">아이디</a></span>
+                    <span>ㅣ</span>
+                    <span><a href="#">비밀번호 찾기</a></span>
+                </div>
+            </div>
+
+            <input type="submit" class="btn-login" value="Login">
+        </form>
+
+        <div class="join-button">
+            <a href="{% url 'main:signup' %}">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>

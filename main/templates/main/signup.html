@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>join page</title>
+    <link rel="stylesheet" href="{% static 'css/total.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <script src="{% static 'js/signup.js' %}"></script>
+</head>
+<body>
+    <div class="login-logo">
+        <a href="{% url 'main:home' %}">
+            <img class="login-logo-img" src="{% static 'img/login-logo.jpeg' %}" alt="로그인로고" />
+        </a>
+    </div>
+    <div class="signup-class">
+        <h2>회원가입</h2>
+        <form method="post" action="{% url 'main:signup' %}" id="signup-form">
+            {% csrf_token %}
+            <div class="id-form">
+                <input type="text" name="username" id="username" placeholder="userName" required>
+                <button type="button" class="id-overlap-btn" onclick="id_overlap_check()">중복체크</button>
+                <img src="{% static 'img/check.png' %}" class="id-check-success"/>
+            </div>
+
+            <input type="password" name="password1" id="password1" placeholder="Password" required>
+            <input type="password" name="password2" id="password2" placeholder="PasswordCheck" required>
+            <input type="email" name="email" id="email" placeholder="email" required>
+            <input type="text" name="phone_number" id="phone_number" placeholder="PhoneNumber">
+
+            <div class="birth-class">
+                <p>생년월일</p>
+                <input type="date" name="birth_date" id="birth_date" placeholder="BirthDay">
+            </div>
+
+            <input type="submit" class="btn-signup" value="가입하기">
+        </form>
+    </div>
+</body>
+</html>

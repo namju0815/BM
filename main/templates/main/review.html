@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/review.css' %}">
+    <script src="{% static 'js/review.js' %}"></script>수
+    <div class="review-wrapper">
+        <p class="review-store-name">{{ store.name }}</p>
+        <div class="review-rating">
+            <div class="review-rating1">
+                <p class="review-rating-text">{{ store.rating }}</p>
+                <div class="review=rating-star" :style="{ width: ratingToPercent + '%'}">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+            </div>
+
+            <div class="review-rating2">
+                <p>그래프</p>
+            </div>
+        </div>
+
+        <div class="review-text">
+            <p>최근 리뷰 {{ reviews.count }}개</p>
+            <p>최신순/별점 높은 순/별점 낮은 순</p>
+
+            {% for review in reviews %}
+            <div class="review-class">
+                <p>{{ review.user.username }}</p>
+                <p>{{ review.rating }}</p>
+                <p>{{ review.review_text }}</p>
+                <img src="{{ review.img.url }}"/>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

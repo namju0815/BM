@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'JUA';
+    src: url("../fonts/BMJUA_otf.otf");
+}
+@font-face{
+    font-family: 'DOHYEON';
+    src: url("../fonts/BMDOHYEON_otf.otf");
+}
+
+*{
+    font-family: 'JUA';
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input[type="password"]{
+    font-family: serif;
+}
+
+::placeholder {
+    font-family: 'JUA';
+}
+:-ms-input-placeholder {
+    font-family: 'JUA';
+}
+::-ms-input-placeholder {
+    font-family: 'JUA';
+}

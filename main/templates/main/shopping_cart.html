@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/shopping_cart.css' %}">
+    <div class="shopping-cart-wrapper">
+        {% if cart_items %}
+        <div class="shopping-cart-boxes">
+            {% for item in cart_items %}
+            <div class="shopping-cart-box">
+                <div class="shopping-cart-store-name">
+                    <img src="{{ item.menu.store.img.url }}">
+                    <p>{{ item.menu.store }}</p>
+                    <div class="shopping-cart-clock">
+                        <img src="{% static 'img/clock.png' %}"/>
+                        <p> 50~60분 후 도착</p>
+                    </div>
+                </div>
+                <div class="shopping-cart-store-detail">
+                    <div class="shopping-cart-menu-img">
+                        <img src="{{ item.menu.img.url }}"/>
+                    </div>
+
+                    <div class="shopping-cart-menu-detail">
+                        <p>{{ item.menu.menu_name }}</p>
+                        <p>{{ item.menu.price|floatformat:0 }}원</p>
+                    </div>
+
+                    <div class="shopping-cart-menu-quantity">
+                        <a href="{% url 'main:cart_minus' menu_id=item.menu.id %}">-</a>
+                        <p>{{ item.quantity }}개</p>
+                        <a href="{% url 'main:cart_add' menu_id=item.menu.id %}">+</a>
+                    </div>
+
+                    <div class="shopping-cart-menu-delete">
+                        <a href="{% url 'main:cart_delete' menu_id=item.menu.id %}">
+                            <img src="{% static 'img/minus.png' %}"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        {% else %}
+            <div class="shopping-cart-box">
+                <img src="{% static 'img/cart2.jpg' %}"/>
+            </div>
+        {% endif %}
+
+        <div class="shopping-cart-more-button">
+            <a  href="{% url 'main:home' %}" class="more-cart">더 담으러 가기</a>
+        </div>
+    </div>
+{% endblock %}

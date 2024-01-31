@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배달의 민족</title>
+    <link rel="stylesheet" href="{% static 'css/total.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+
+
+
+</head>
+<body>
+<div class="total">
+{% block nav %}
+    <div class="header-wrapper">
+        <div class="header-logo">
+            <a href="{% url 'main:home' %}">
+                <img src="{% static 'img/home-logo.png' %}" alt="홈헤더로고"/>
+            </a>
+        </div>
+
+        <div class="header-searchbox">
+            <form method="POST" action="{% url 'main:search' %}">
+                {% csrf_token %}
+                <img class="search-btn" type="submit" src="{% static 'img/search-logo.png' %}">
+                <input class="search-text" type="search" placeholder="찾는 음식이 뭐에요?" name="searched" aria-label="Search">
+            </form>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="header-menu">
+            <div class="cart-icon">
+                <a href="{% url 'main:cart' %}">
+                    <img src="{% static 'img/cart.png' %}">
+                </a>
+            </div>
+
+            <div class="header-name">
+                <p>안녕하세요</p><br>
+                <a class="mypage-btn" href="">{{ user.username }}님!!</a>
+            </div>
+
+            <div class="header-name">
+                <a  href="{% url 'main:logout' %}">로그아웃</a>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="header-menu">
+            <div class="header-name">
+                <a href="{% url 'main:login' %}">로그인</a>
+            </div>
+
+            <div class="header-name">
+                <a href="{% url 'main:signup' %}">회원가입</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+</div>
+{% block content %}{% endblock %}
+</body>
+</html>

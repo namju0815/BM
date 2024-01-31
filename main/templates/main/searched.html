@@ -1,0 +1,39 @@
+{% extends 'main/home.html' %}
+
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/searched.css' %}">
+    <div class="search-result">
+        {% if searched %}
+            <p>{{ stores|length }} 개의 결과가 있습니다.</p>
+
+            <div class="search-total">
+                <table class="search-boxes">
+                    <tr>
+                        {% for store in stores %}
+                            <td>
+                                <div class="search-box">
+                                    <div class="search-box-img">
+                                        <img class="search-img" src="{{ store.img.url }}">
+                                    </div>
+                                    <div class="search-box-text">
+                                        <a href="{% url 'main:search' %}">{{ store.name }}</a>
+                                        <p>{{ store.comment }}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            {% if forloop.counter|divisibleby:2 and not forloop.last %}
+                                </tr><tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                </table>
+            </div>
+
+        {% else %}
+            <h1> 찾고 있는 레시피를 검색창에 입력해주세요. </h1>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
